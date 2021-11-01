@@ -109,11 +109,7 @@ function hideImage (id){
         }
         // AGREGAR BOTONES DE CONTROL
         add_buttons_gsap(T_LINE)
-
-            // const $img_final = document.querySelector(".img-final")
-            // if($img_final)
-            //     $img_final.style.opacity = 1
-        
+            
     }
 
     // INICAR PROCESO

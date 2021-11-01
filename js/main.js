@@ -10,14 +10,14 @@ gsap.from("#wolf",{
     scrollTrigger : {
         scrub:0.5,
     },
-    x : 400,
+    x : 100,
 })
 
 gsap.from("#castle",{
     scrollTrigger : {
         scrub:0.5,
     },
-    x : -100,
+    x : -80,
 })
 
 gsap.to("#bats",{
@@ -29,26 +29,42 @@ gsap.to("#bats",{
 
 
 const PICTURE_LIST = [
-	"ace.png", "genkai-yu-yu-hakusho.png", "komugi-hxh.png", "luffy.png", "saitama-one-punch-man.png"
+	"img01.jpg",
+    "img02.jpg", 
+    "img03.jpg", 
+    "img04.jpg", 
+    "img05.jpg",
+    "img06.jpg",
+    "img07.jpg",
+    "img08.jpg",
+    "img09.jpg",
+    "img010.jpg",
+    "img011.jpg",
+    "img012.jpg",
+    "img013.jpg",
+    "img014.jpg",
+    "img015.jpg",
+    "img016.jpg",
+    "img017.jpg",
+    "img018.jpg"
 ]
 
 const PROPERTIES = {
     location_1: {
-        from: {x: 1000, y: 0, opacity: 0, scale: 0.1, force3D: true},
-        to: {duration: 0.7, x: 500, y:20, scale: 2.2},
+        from: {opacity: 0, scale: 0.1, force3D: true},
+        to: {duration: 1.5, scale: 2.2},
     },
     location_2: {
-        from: {x: 0, y: -200, opacity: 0, scale: 0.1, force3D: true},
-        to: {duration: 0.7, x: 500, y:0, scale: 2, rotation: 360},
+        from: {opacity: 0, scale: 0.1, force3D: true},
+        to: {duration: 1.5, scale: 2.2},
     },
     localtion_3: {
-        from: {x: 0, y: 200, opacity: 0, scale: 0.1, force3D: true},
-        to: {duration: 0.7, x: 500, y:0, scale: 1.5},
+        from: {opacity: 0, scale: 0.1, force3D: true},
+        to: {duration: 1.5, scale: 2.2},
     }
 }
 
 const IMAGE_BASE_URL = "image/";
-
 // MÉTODO PARA OCULTAR IMAGEN A PARTIR DE SU ID
 function hideImage (id){
     const $img = document.getElementById(id) || null
@@ -89,14 +105,22 @@ function hideImage (id){
             const pto = (index%3 == 0) ? PROPERTIES.localtion_3.to : (index%2 == 0) ? PROPERTIES.location_2.to : PROPERTIES.location_1.to
 
             T_LINE.from(`#img_${index}`, pfrom);
-            T_LINE.to(`#img_${index}`, {...pto, onComplete: hideImage, onCompleteParams: [`img_${index}`]}); 
-
+            T_LINE.to(`#img_${index}`, {...pto, onComplete: hideImage, onCompleteParams: [`img_${index}`]});         
         }
         // AGREGAR BOTONES DE CONTROL
         add_buttons_gsap(T_LINE)
+
+            // const $img_final = document.querySelector(".img-final")
+            // if($img_final)
+            //     $img_final.style.opacity = 1
+        
     }
 
     // INICAR PROCESO
     const tl = gsap.timeline({paused: true});
     init_process(tl);
+
+    
 })();
+
+
